@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISINGIZWE Aurore Marie Pascaline - Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="my_pic.jpg" alt="ISINGIZWE Aurore Marie Pascaline Profile Picture" class="profile-img">
+            <div class="header-text-content"> <h1>ISINGIZWE AURORE MARIE PASCALINE</h1>
+                <p>Kigali, Rwanda | +250 796 140 163 | aurorepascaline7@gmail.com</p>
+                <p>Date of Birth: 07 June 2005 | Female</p>
+            </div>
+        </div>
+    </header>
+ 
+    <nav>
+        <div class="container">
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#hobbies">Hobbies & Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="summary" class="fade-in">
+            <h2>Professional Summary</h2>
+            <p>I am a first-year university student pursuing a Bachelor's degree in Software Engineering at African Leadership University. With a solid academic foundation in Physics, Chemistry, and Mathematics, I have developed strong analytical and problem-solving skills. I am eager to grow in the field of technology and contribute to innovative and impactful software solutions.</p>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>Problem-solving and logical thinking</li>
+                <li>Basic programming concepts (beginner level)</li>
+                <li>Effective verbal and written communication</li>
+                <li>Teamwork and collaboration</li>
+                <li>Time management and organization</li>
+                <li>Basic computer literacy (MS Word, Excel, Internet research)</li>
+            </ul>
+        </section>
+
+        <section id="education" class="fade-in">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>African Leadership University – Kigali, Rwanda</h3>
+                <p>Bachelor’s Degree in Software Engineering (In Progress)</p>
+                <p>Started: September 2024 | Expected Graduation: 2029</p>
+                <p>Currently a freshman</p>
+            </div>
+            <div class="education-item">
+                <h3>College Saint André – Kigali, Rwanda</h3>
+                <p>Advanced Level – Physics, Chemistry, and Mathematics (2020–2023)</p>
+            </div>
+            <div class="education-item">
+                <h3>College Saint André – Kigali, Rwanda</h3>
+                <p>Ordinary Level (2017–2019)</p>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>E-lab mission</h3>
+                    <p>WE endeavor to transform Rwanda's education system by fostering innovative programs and partnerships that equip youth with essential skills for the job market, contributing to a stronger and more resilient economy</p>
+                    <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+                    <div class="project-links">
+                        <a href="https://thebig5.vercel.app/team" target="_blank" class="button">Team work</a>
+                    </div>
+                </div>
+                </div>
+            
+        </section>
+
+        <section id="languages" class="fade-in">
+            <h2>Languages</h2>
+            <ul class="languages-list">
+                <li>English – Proficient</li>
+                <li>French – Intermediate</li>
+                <li>Kinyarwanda – Native</li>
+            </ul>
+        </section>
+
+        <section id="hobbies" class="fade-in">
+            <h2>Hobbies and Interests</h2>
+            <ul class="hobbies-list">
+                <li>Exploring technology and coding platforms</li>
+                <li>Participating in academic clubs and discussions</li>
+                <li>Volunteering and community involvement</li>
+                <li>Learning new skills</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out via email or connect on social media.</p>
+            <p>Email: <a href="mailto:aurorepascaline7@gmail.com">aurorepascaline7@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/aurore_pascaline" target="_blank" class="button secondary">instagram
+                </a>
+                <a href="https://wa.me/250726385379" target="_blank" class="button secondary">whatsapp
+                </a>
+                <a href="https://github.com/mar-aurore" target="_blank" class="button secondary">GitHub 
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ISINGIZWE Aurore Marie Pascaline. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Responsive Navigation Bar Logic ---
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                });
+
+                // Close nav menu when a link is clicked (for single-page navigation)
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            hamburger.classList.remove('active');
+                        }
+                    });
+                });
+            }
+
+            // --- Scroll-triggered Fade-in Animation Logic ---
+            const faders = document.querySelectorAll('.fade-in');
+
+            // Options for the Intersection Observer
+            const appearOptions = {
+                threshold: 0.2, // When 20% of the element is visible
+                rootMargin: "0px 0px -100px 0px" // Shrink the bottom detection area by 100px to trigger earlier
+            };
+
+            // Callback function for the Intersection Observer
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        // If element is not intersecting, it remains hidden (or slides back if needed, but not for this design)
+                        return;
+                    } else {
+                        // If element is intersecting, add the 'appear' class to trigger animation
+                        entry.target.classList.add('appear');
+                        // Stop observing once it has appeared
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            // Observe each 'fade-in' element
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+        });
+    </script>
+</body>
+</html>

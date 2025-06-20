@@ -1,0 +1,511 @@
+/* Basic Reset & Typography */
+:root {
+    --primary-color: #0bbcad; /* A professional green */
+    --secondary-color: #4de5c9; /* A complementary blue */
+    --accent-color: #ffc107; /* A subtle accent yellow */
+    --text-color: #333;
+    --background-color: #f8f9fa;
+    --card-background: #eff4ea;
+    --border-color: #3f644a;
+    --header-footer-bg: #0f1010; /* Darker charcoal for header/footer */
+}
+
+/* Universal box-sizing for easier layout calculations */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Smooth scrolling for nav links */
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font from Google Fonts */
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5em; /* Increased horizontal padding */
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8em;
+    font-weight: 600; /* Semi-bold for headings */
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+h2 {
+    font-size: 2.2em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5em;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: var(--header-footer-bg);
+    color: white;
+    padding: 2.5em 0;
+    text-align: center; /* Default text alignment for small screens */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex; /* Enable flexbox for horizontal alignment */
+    flex-direction: column; /* Stack image and text vertically on small screens */
+    align-items: center; /* Center items horizontally in column mode */
+    justify-content: center; /* Center items vertically in column mode */
+    text-align: center; /* Center text within header-text-content */
+}
+
+/* Profile Image Styling (now applied directly to img) */
+.profile-img {
+    width: 150px; /* Set desired width */
+    height: 150px; /* Set desired height */
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 5px solid white; /* White border around the image */
+    margin-bottom: 1em; /* Space between image and text when stacked */
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2); /* A subtle glow/shadow */
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.header-text-content {
+    /* Styles for the text content next to the profile image */
+    margin-left: 0; /* Reset margin for mobile */
+}
+
+header h1 {
+    color: white;
+    margin-bottom: 0.2em;
+    font-weight: 700;
+}
+
+header p {
+    margin: 0;
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* Navigation */
+nav {
+    background-color: var(--primary-color);
+    padding: 1em 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2em;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: 600;
+    padding: 0.5em 0;
+    display: block;
+    transition: color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.95em;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.hamburger {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Main Content Sections */
+main {
+    padding-top: 2em; /* Space below sticky nav */
+}
+
+main section {
+    background-color: var(--card-background);
+    margin-bottom: 2.5em;
+    padding: 2.5em;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* More pronounced shadow */
+}
+
+/* Skills List Styling */
+.skills-list, .languages-list, .hobbies-list {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em; /* Space between skill items */
+}
+
+.skills-list li, .languages-list li, .hobbies-list li {
+    background-color: var(--background-color);
+    padding: 0.6em 1.2em;
+    border-radius: 20px; /* Pill-shaped items */
+    border: 1px solid var(--border-color);
+    font-size: 0.95em;
+    color: var(--text-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.skills-list li:hover, .languages-list li:hover, .hobbies-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+
+.education-item {
+    margin-bottom: 2em;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1.5em;
+    position: relative; /* For potential timeline dot */
+}
+
+.education-item:last-child {
+    margin-bottom: 0;
+}
+
+.education-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    color: #444; /* Slightly darker than primary for sub-headings */
+}
+
+.education-item p {
+    margin: 0.2em 0;
+}
+
+/* Projects Section Specific Styles */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em; /* Increased gap */
+    margin-top: 2em;
+}
+
+.project-item {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.8em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover animation */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12); /* Stronger shadow on hover */
+}
+
+.project-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.8em;
+    color: var(--primary-color);
+}
+
+.project-item p {
+    margin-bottom: 1em;
+    flex-grow: 1; /* Allows description to take available space */
+}
+
+.project-links {
+    display: flex;
+    gap: 0.8em;
+    flex-wrap: wrap;
+    margin-top: 1.5em; /* Space above buttons */
+}
+
+.button {
+    display: inline-block;
+    padding: 0.8em 1.5em;
+    border-radius: 6px;
+    text-align: center;
+    color: white;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    font-size: 0.95em;
+    font-weight: 600;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #36853a; /* Darker green on hover */
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.button.secondary {
+    background-color: var(--secondary-color);
+}
+
+.button.secondary:hover {
+    background-color: #0056b3;
+}
+
+.project-note {
+    font-style: italic;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-top: 3em;
+    text-align: center;
+    padding: 1.5em;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+/* Contact Section Social Links - Images */
+.social-links-images { /* New container class for image links */
+    margin-top: 1.5em;
+    display: flex;
+    gap: 1.5em; /* Space between images */
+    flex-wrap: wrap;
+    justify-content: center; /* Center the images */
+}
+
+.social-links-images a {
+    display: inline-block; /* Makes sure links behave like blocks for margins/padding */
+    transition: transform 0.2s ease;
+}
+
+.social-links-images a:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+    text-decoration: none; /* Remove underline on hover when it's an image link */
+}
+
+.social-links-images img {
+    width: 40px;  /* Adjust size as needed */
+    height: 40px; /* Keep aspect ratio */
+    border-radius: 8px; /* Slightly rounded corners for a modern look */
+    /* You can add a subtle border or shadow if you like */
+    /* border: 1px solid var(--border-color); */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--header-footer-bg);
+    color: white;
+    text-align: center;
+    padding: 2em 0;
+    font-size: 0.9em;
+    margin-top: 3em;
+}
+
+/* === Animation Styles (Fade-in on scroll) === */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Slower and smoother transition */
+    will-change: opacity, transform; /* Optimize for animation */
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* === Responsiveness (Media Queries) === */
+
+/* For screens larger than 768px (tablets and desktops) */
+@media (min-width: 769px) {
+    header .container {
+        flex-direction: row; /* Align items horizontally */
+        justify-content: flex-start; /* Align to the left */
+        text-align: left; /* Align text content to the left */
+    }
+
+    .profile-img {
+        margin-right: 2em; /* Space between image and text */
+        margin-bottom: 0; /* Reset margin from mobile */
+    }
+
+    .header-text-content {
+        /* No specific width needed, it will take remaining space */
+    }
+
+    header h1, header p {
+        text-align: left; /* Ensure text is left-aligned within its container */
+    }
+
+    .social-links-images {
+        justify-content: flex-start; /* Align images to the left on larger screens */
+    }
+}
+
+/* For screens smaller than 768px (tablets and mobiles) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    /* Navigation for mobile */
+    nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        max-height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: max-height 0.4s ease-out; /* Smoother transition */
+        background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background when open */
+        border-radius: 8px;
+        margin-top: 1em;
+    }
+
+    .nav-links.active {
+        max-height: 400px; /* Adjust based on your menu height */
+        transition: max-height 0.6s ease-in; /* Smoother transition */
+        padding-bottom: 1em;
+    }
+
+    .nav-links li {
+        margin: 0.5em 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 0.8em 0;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on smaller screens */
+        align-self: flex-end; /* Push to the right */
+    }
+
+    /* Hamburger animation for active state */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    main section {
+        padding: 2em;
+        margin-bottom: 1.5em;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .skills-list, .languages-list, .hobbies-list {
+        justify-content: center; /* Center items on small screens */
+    }
+
+    .button {
+        width: 100%; /* Full width buttons on mobile */
+        margin-bottom: 0.5em;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+}
+
+/* For screens smaller than 480px (very small mobile phones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.85em;
+    }
+
+    main section {
+        padding: 1.5em;
+    }
+
+    .button {
+        padding: 0.7em 1em;
+        font-size: 0.9em;
+    }
+}
